@@ -4,6 +4,8 @@ If you find any mistakes in this guide, _please_ submit a PR 👍🏻.
 
 [forum.openwrt.org](https://forum.openwrt.org/t/openwrt-support-for-xiaomi-ax3000ne/153769)
 
+fork from https://github.com/PatriciaLee3/wr30u_ssh
+
 ## **Disclaimer:**
 
 **You can potentially brick your device. I don't take responsibility for any damage caused.**
