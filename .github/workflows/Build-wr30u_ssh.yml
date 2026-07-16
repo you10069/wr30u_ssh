@@ -1,0 +1,49 @@
+name: Build wr30u_ssh
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+
+    - name: Setup Go
+      uses: actions/setup-go@v6
+      with:
+        # go-version: ~1.25.7
+        go-version: '1.26'
+        # go-version: ^1.25
+        # check-latest: true # Always check for the latest patch release
+        cache: false
+
+    - name: Space show before
+      run: df -hT
+
+    - name: Build
+      run: |
+        go build -v -trimpath -ldflags="-s -w -buildid=" -o wr30u_ssh.exe
+
+    - name: Set variables
+      run: |
+        echo "TAG_DATE=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
+      shell: bash
+
+    - name: Space show after
+      run: df -hT
+
+    - name: Upload
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        tag: wr30u_ssh-${{ env.TAG_DATE }}
+        file: wr30u_ssh.exe
+        asset_name: wr30u_ssh-${{ env.TAG_DATE }}
+        prerelease: true
+        overwrite: false
