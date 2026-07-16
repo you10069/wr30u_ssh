@@ -28,6 +28,7 @@ jobs:
 
     - name: Build
       run: |
+        go env -w GOOS=windows GOARCH=amd64 GOAMD64=v2
         go build -v -trimpath -ldflags="-s -w -buildid=" -o wr30u_ssh.exe
 
     - name: Set variables
