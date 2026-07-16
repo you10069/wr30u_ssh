@@ -45,6 +45,6 @@ jobs:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         tag: wr30u_ssh-${{ env.TAG_DATE }}
         file: wr30u_ssh.exe
-        asset_name: wr30u_ssh-${{ env.TAG_DATE }}
+        asset_name: wr30u_ssh-${{ env.TAG_DATE }}.exe
         prerelease: true
         overwrite: false
