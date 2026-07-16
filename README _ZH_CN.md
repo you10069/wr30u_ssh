@@ -50,7 +50,7 @@ Windows 防火墙首次询问时，需要允许程序在当前网络上监听；
 ```text
 -listen :32768       监听地址，默认 :32768
 -password admin      设置 root 密码，默认 admin
--auto                 设备注册后不等待 Enter，直接执行
+-auto                设备注册后不等待 Enter，直接执行
 ```
 
 例如：
